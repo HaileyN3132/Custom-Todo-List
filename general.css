@@ -1,0 +1,55 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    text-align: center;
+}
+
+
+
+span{
+    visibility: hidden;
+    position: absolute;
+    white-space: pre;
+    font: inherit; 
+}
+
+.todo-container{
+    height: 500px;
+    border: solid;
+}
+
+.task-container{
+    height: 25px;
+    /*position: absolute;*/
+    display: inline-flex;
+    text-align: center;
+    column-gap: 5px;
+    border-radius: 10px;
+    background-color: aqua;
+    padding-left: 20px;
+    cursor:move;
+}
+
+.task-input{
+    background-color: transparent;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    
+}
+
+.remove-btn{
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+    color: red;
+    cursor: pointer;
+}
+
+
+
+
+
