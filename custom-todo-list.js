@@ -1,3 +1,12 @@
+/* CREATE SHAPE */
+
+
+
+
+
+
+
+/* CREATE TASK */
 const addTaskBtn = document.getElementById('add-task-btn');
 
 
@@ -26,15 +35,24 @@ function createTask(x, y){
     taskDiv.style.top = y + "px";
     console.log(`Task Div created at x = ${x} y = ${y}`);
 
-    //Create checkbox
-    const statusBox = document.createElement('input');
-    statusBox.type = 'checkbox';
+    //Create checkbox to keep track task status
+    const statusTask = document.createElement('input');
+    statusTask.type = 'checkbox';
+    statusTask.style.color = 'gray';
+    
+    
 
 
     //create input
     const inputTask = document.createElement('input');
     inputTask.classList.add('task-input');
     inputTask.type = 'text';
+
+    //Handler for DONE task
+    statusTask.addEventListener('click', () =>{
+        taskDiv.classList.toggle('checked-task');
+        inputTask.classList.toggle('done-input-task');
+    });
 
 
     //Create span for mirror
@@ -65,7 +83,7 @@ function createTask(x, y){
     });
 
     // Append checkbox + input + span + button into taskDiv
-    taskDiv.append(statusBox, inputTask, mirror,removeBtn);
+    taskDiv.append(statusTask, inputTask, mirror,removeBtn);
 
     //Add handler when mouse DOWN on taskDiv
     let startX = 0, startY = 0;

@@ -1,5 +1,6 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
+    background-color: beige;
 }
 
 h1{
@@ -15,6 +16,12 @@ span{
     font: inherit; 
 }
 
+.menu-container{
+    display: flex;
+    flex-direction: column;
+}
+
+
 .todo-container{
     height: 500px;
     border: solid;
@@ -22,23 +29,37 @@ span{
 
 .task-container{
     height: 25px;
-    /*position: absolute;*/
     display: inline-flex;
     text-align: center;
     column-gap: 5px;
     border-radius: 10px;
-    background-color: aqua;
-    padding-left: 20px;
+    padding-left: 10px;
+    padding-right: 5px;   
     cursor:move;
+    
 }
+
+.task-container:hover{
+    border: 2px, gray, solid;
+}
+
+.checked-task{
+   filter: contrast(50%) opacity(60%) grayscale(50%);
+}
+
 
 .task-input{
     background-color: transparent;
-    font-size: 15px;
+    font-size: 16px;
     border: none;
     outline: none;
     border-radius: 10px;
     
+}
+
+.done-input-task{
+    text-decoration: line-through;
+    text-decoration-thickness: 1.5px;
 }
 
 .remove-btn{
