@@ -7,6 +7,34 @@ h1{
     text-align: center;
 }
 
+/*SHAPE*/
+.shape-container{
+    display: inline-flex;
+    column-gap: 10px;
+    
+
+}
+
+.rectangle{
+    width: 100px;
+    height: 50px;
+    resize: both;
+    background-color: aquamarine;
+    overflow: hidden;
+}
+
+.remove-shape-btn{
+    background-color: transparent;
+    color: red;
+    font-size: 12px;
+    border: none;
+}
+
+
+
+
+
+
 
 
 span{
@@ -22,9 +50,13 @@ span{
 }
 
 
+/* TASK*/
+
 .todo-container{
     height: 500px;
     border: solid;
+   
+    
 }
 
 .task-container{
@@ -36,6 +68,7 @@ span{
     padding-left: 10px;
     padding-right: 5px;   
     cursor:move;
+    z-index: 1;         /* place on top*/
     
 }
 

@@ -1,5 +1,59 @@
 /* CREATE SHAPE */
+const shapeBtns = document.querySelectorAll('.shape-btn');
+shapeBtns.forEach(btn => btn.addEventListener('click', () => {
+    createShape(btn);   // Pass the btn element
+}));
 
+
+function createShape(btn){
+    const todoContainer = document.querySelector(".todo-container");
+
+    switch(btn.textContent){
+        case 'Rectangle':
+            todoContainer.addEventListener('click', (event) => {
+                createRectangle(event, todoContainer);
+            }, {once:true});
+            break;
+        case 'Circle':
+            console.log('Create Circle!');
+            break;
+        case 'Triangle':
+            console.log('Create Triangle!');
+            break;
+    }
+}
+
+function createRectangle(event, todoContainer){
+    console.log(`(${event.clientX}, ${event.clientY})`);
+    //create the shape-container
+    const shapeDiv = document.createElement('div');
+    shapeDiv.classList.add('shape-container');
+    shapeDiv.style.position = "absolute";       // This make the div display anywhere
+    shapeDiv.style.left = event.clientX + "px";
+    shapeDiv.style.top = event.clientY + "px";
+
+    // create the shape
+    const shape = document.createElement('div');
+    shape.classList.add('rectangle');
+
+
+    // remove button
+    const  removeShapeBtn = document.createElement('button');
+    removeShapeBtn.textContent = 'X';
+    removeShapeBtn.classList.add('remove-shape-btn');
+    removeShapeBtn.addEventListener('click', () =>{
+        shapeDiv.remove();
+    });
+
+
+
+    //Append the rectangle to its container
+    shapeDiv.append(shape, removeShapeBtn);
+
+    //Append new shape to the container
+    todoContainer.append(shapeDiv);
+    
+}
 
 
 
