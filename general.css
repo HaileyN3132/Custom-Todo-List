@@ -7,12 +7,25 @@ h1{
     text-align: center;
 }
 
+.disable-drag{
+    background-color: rgb(226, 89, 89);
+}
+
+.enable-drag{
+    background-color: lightgreen;
+}
+
+
 /*SHAPE*/
 .shape-container{
     display: inline-flex;
     column-gap: 10px;
     
 
+}
+
+.enable-move-shape{
+    cursor: move;
 }
 
 .rectangle{
@@ -23,18 +36,22 @@ h1{
     overflow: hidden;
 }
 
+
+.circle{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    resize: both;
+    background-color: greenyellow;
+    overflow: hidden;
+}
+
 .remove-shape-btn{
     background-color: transparent;
     color: red;
     font-size: 12px;
     border: none;
 }
-
-
-
-
-
-
 
 
 span{

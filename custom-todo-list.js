@@ -1,3 +1,17 @@
+
+/*  disable/enable drag function */
+let draggable = false;
+const dragBtn = document.getElementById('drag-btn');
+dragBtn.addEventListener('click', () => {
+    dragBtn.classList.toggle('enable-drag');
+    draggable = draggable? false : true;
+    
+    console.log(`draggable = ${draggable}`);
+
+});
+
+
+
 /* CREATE SHAPE */
 const shapeBtns = document.querySelectorAll('.shape-btn');
 shapeBtns.forEach(btn => btn.addEventListener('click', () => {
@@ -7,22 +21,129 @@ shapeBtns.forEach(btn => btn.addEventListener('click', () => {
 
 function createShape(btn){
     const todoContainer = document.querySelector(".todo-container");
-
+    
+    const shapeDiv = document.createElement('div');
+    const removeShapeBtn = document.createElement('button');
+    
     switch(btn.textContent){
         case 'Rectangle':
             todoContainer.addEventListener('click', (event) => {
-                createRectangle(event, todoContainer);
+                createRectangle(event,shapeDiv);
+                renderRemoveShapeBtn(removeShapeBtn);       
+                shapeDiv.append(removeShapeBtn);
             }, {once:true});
             break;
+
+
         case 'Circle':
-            console.log('Create Circle!');
+            todoContainer.addEventListener('click', (event) => {
+                createCircle(event,shapeDiv);
+                renderRemoveShapeBtn(removeShapeBtn);       
+                shapeDiv.append(removeShapeBtn);
+            }, {once:true});
             break;
+
+
         case 'Triangle':
             console.log('Create Triangle!');
             break;
     }
+
+
+    // Handler for remove btn
+    removeShapeBtn.addEventListener('click', () =>{
+        shapeDiv.remove();
+    });
+
+
+    //Handler for drag and drop
+    let startX = 0, startY = 0;
+
+    shapeDiv.addEventListener('mousedown', (event) => {
+        startX = event.clientX;
+        startY = event.clientY;
+        
+
+        // Only drag when enable
+        if(draggable){
+            shapeDiv.classList.add('enable-move-shape');
+        
+            document.addEventListener('mousemove', dragShape);
+
+            document.addEventListener('mouseup', () =>{
+                
+                document.removeEventListener('mousemove', dragShape);  
+                shapeDiv.classList.remove('enable-move-shape');
+            });
+        
+        }
+
+    });
+
+ 
+
+    function dragShape(event){
+        console.log('Mouse MOVE');
+        
+        const newX = startX - event.clientX;
+        const newY = startY - event.clientY;
+
+        startX = event.clientX;
+        startY = event.clientY;
+
+        shapeDiv.style.left = (shapeDiv.offsetLeft - newX) + 'px';
+        shapeDiv.style.top = (shapeDiv.offsetTop - newY) + 'px';
+        
+    }
+
+    
+    //Append shapeDiv to the container
+    todoContainer.append(shapeDiv);
 }
 
+
+// Style the shape-container
+function renderShapeDiv(event,shapeDiv){
+    shapeDiv.classList.add('shape-container');
+    shapeDiv.style.position = "absolute";       // This make the div display anywhere
+    shapeDiv.style.left = event.clientX + "px";
+    shapeDiv.style.top = event.clientY + "px";
+}
+
+// Style the button
+function renderRemoveShapeBtn(removeShapeBtn){
+    removeShapeBtn.textContent = 'X';
+    removeShapeBtn.classList.add('remove-shape-btn');
+
+}
+
+function createRectangle(event, shapeDiv){
+    
+    renderShapeDiv(event,shapeDiv);
+
+    // create RECTANGLE shape
+    const shape = document.createElement('div');
+    shape.classList.add('rectangle');
+
+
+    //Append the rectangle to its shape container
+    shapeDiv.append(shape);
+
+}
+
+function createCircle(event, shapeDiv){
+    renderShapeDiv(event, shapeDiv);
+
+    // create CIRCLE shape
+    const shape = document.createElement('div');
+    shape.classList.add('circle');
+
+    //Append the circle to its shape container
+    shapeDiv.append(shape);
+}
+
+
+/*
 function createRectangle(event, todoContainer){
     console.log(`(${event.clientX}, ${event.clientY})`);
     //create the shape-container
@@ -54,6 +175,7 @@ function createRectangle(event, todoContainer){
     todoContainer.append(shapeDiv);
     
 }
+*/
 
 
 
