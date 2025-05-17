@@ -1,12 +1,11 @@
 
-/*  disable/enable drag function */
+/*  disable/enable drag button */
 let draggable = false;
 const dragBtn = document.getElementById('drag-btn');
 dragBtn.addEventListener('click', () => {
     dragBtn.classList.toggle('enable-drag');
     draggable = draggable? false : true;
     
-    console.log(`draggable = ${draggable}`);
 
 });
 
@@ -242,6 +241,8 @@ function createTask(x, y){
     //Set-up auto sizing
     inputTask.addEventListener('input', updateWidth);
     //window.addEventListener('load', updateWidth);
+
+    
    
 
     //Create remove button and set handle
@@ -266,7 +267,6 @@ function createTask(x, y){
     taskDiv.addEventListener('mousedown', (event) =>{
         console.log('mouse DOWN!');
         taskDivMouseDown(event);
-
         
     });
    
@@ -300,6 +300,15 @@ function createTask(x, y){
     }
 
     
+    // Hide/display remove button
+    taskDiv.addEventListener('mouseover', () => {
+        removeBtn.style.visibility = 'visible';
+        
+    });
+
+    taskDiv.addEventListener('mouseleave', () => {
+        removeBtn.style.visibility = 'hidden';
+    });
 
     
     // Append taskDiv into main container

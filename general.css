@@ -21,7 +21,6 @@ h1{
     display: inline-flex;
     column-gap: 10px;
     
-
 }
 
 .enable-move-shape{
@@ -72,15 +71,13 @@ span{
 .todo-container{
     height: 500px;
     border: solid;
-   
-    
 }
 
 .task-container{
     height: 25px;
     display: inline-flex;
     text-align: center;
-    column-gap: 5px;
+    column-gap: 10px;
     border-radius: 10px;
     padding-left: 10px;
     padding-right: 5px;   
@@ -119,8 +116,5 @@ span{
     color: red;
     cursor: pointer;
 }
-
-
-
 
 
