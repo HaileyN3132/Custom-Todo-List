@@ -36,6 +36,8 @@ h1{
 }
 
 
+
+
 .circle{
     width: 100px;
     height: 100px;
@@ -43,6 +45,11 @@ h1{
     resize: both;
     background-color: greenyellow;
     overflow: hidden;
+}
+
+/* Must place after ALL shape classes to work propertly*/
+.disable-resize{
+    overflow:visible;
 }
 
 .remove-shape-btn{

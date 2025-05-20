@@ -61,22 +61,15 @@ function createShape(btn){
     shapeDiv.addEventListener('mousedown', (event) => {
         startX = event.clientX;
         startY = event.clientY;
-        
 
         // Only drag when enable
-        if(draggable){
-            shapeDiv.classList.add('enable-move-shape');
-        
+        if(draggable){        
             document.addEventListener('mousemove', dragShape);
 
             document.addEventListener('mouseup', () =>{
-                
                 document.removeEventListener('mousemove', dragShape);  
-                shapeDiv.classList.remove('enable-move-shape');
             });
-        
         }
-
     });
 
  
@@ -94,6 +87,29 @@ function createShape(btn){
         shapeDiv.style.top = (shapeDiv.offsetTop - newY) + 'px';
         
     }
+
+    // Display/hide remove button + resize
+    shapeDiv.addEventListener('mouseover', () => {
+        // remove btn
+        removeShapeBtn.style.visibility = 'visible';
+
+
+        // Resize 
+        if(draggable){
+            shapeDiv.children[0].classList.add('disable-resize');
+            shapeDiv.children[0].classList.add('enable-move-shape');
+        }else{
+            shapeDiv.children[0].classList.remove('disable-resize');
+            shapeDiv.children[0].classList.remove('enable-move-shape');
+        }
+    });
+
+    shapeDiv.addEventListener('mouseleave', () => {
+        removeShapeBtn.style.visibility = 'hidden';
+    })
+
+
+
 
     
     //Append shapeDiv to the container
