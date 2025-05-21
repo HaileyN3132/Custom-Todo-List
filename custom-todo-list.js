@@ -12,9 +12,40 @@ dragBtn.addEventListener('click', () => {
 
 
 /* CREATE SHAPE */
+
+//Dropdown menu control
+const defaultShapeBtn = document.getElementById('default-shape-btn');
+defaultShapeBtn.addEventListener('click', () => {
+    const icon = defaultShapeBtn.querySelector('span');
+    console.log(`Default = ${icon.textContent}`);
+    createShape(icon);
+});
+
+const shapeDropDownBtn = document.getElementById('shape-drop-down-btn');
+const dropdownContent = document.getElementById('shape-drop-down-content');
+
+shapeDropDownBtn.addEventListener('click', () => {
+    dropdownContent.classList.toggle('enable-shape-drop-down-content');
+});
+
+dropdownContent.addEventListener('click', () => {
+    dropdownContent.classList.toggle('enable-shape-drop-down-content');
+});
+
+
+
+
+
 const shapeBtns = document.querySelectorAll('.shape-btn');
 shapeBtns.forEach(btn => btn.addEventListener('click', () => {
-    createShape(btn);   // Pass the btn element
+    // Create element base on clicked shape
+    createShape(btn);   
+
+    //Swap icons of the selected button to default-shape-btn
+    const defaultIcon = defaultShapeBtn.querySelector("span");
+    const tempIcon = defaultIcon.textContent;
+    defaultIcon.textContent = btn.textContent;
+    btn.textContent = tempIcon;
 }));
 
 
@@ -25,7 +56,7 @@ function createShape(btn){
     const removeShapeBtn = document.createElement('button');
     
     switch(btn.textContent){
-        case 'Rectangle':
+        case 'rectangle':
             todoContainer.addEventListener('click', (event) => {
                 createRectangle(event,shapeDiv);
                 renderRemoveShapeBtn(removeShapeBtn);       
@@ -34,7 +65,7 @@ function createShape(btn){
             break;
 
 
-        case 'Circle':
+        case 'circle':
             todoContainer.addEventListener('click', (event) => {
                 createCircle(event,shapeDiv);
                 renderRemoveShapeBtn(removeShapeBtn);       
@@ -42,8 +73,8 @@ function createShape(btn){
             }, {once:true});
             break;
 
-
-        case 'Triangle':
+        // Create Triangle
+        case 'change_history':
             console.log('Create Triangle!');
             break;
     }
@@ -248,6 +279,7 @@ function createTask(x, y){
 
     //Create span for mirror
     const mirror = document.createElement('span');
+    mirror.classList.add('mirror-span');
     function updateWidth() {
         const valueToMeasure = inputTask.value || inputTask.placeholder || ' ';
         mirror.textContent = valueToMeasure;

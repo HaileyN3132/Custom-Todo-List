@@ -2,32 +2,101 @@
 <html>
     <head>
         <title>Custom Todo List</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
         <link rel="stylesheet" href="general.css">
+        
+
+        
+
     </head>
     <body>
         <h1>Todo List</h1>
+
+        <!-- Tools menu -->
         <div class="menu-container">
+
+            <!-- Col 1 -->
+            <div class="menu-col">
+                <div>
+                    <button id="add-task-btn">New Task</button>
+                </div>
+            </div>
+
+            <!-- Col 2 -->
+            <div class="menu-col">
+                <div>
+                    <button>TEXT BOX</button>
+                </div>
+            </div>
+
+
+            <!-- Col 3
             <div>
+                <div>
+                    Shape
+                    <button class= "shape-btn">Rectangle</button>
+                    <button class= "shape-btn">Circle</button>
+                    <button class= "shape-btn">Triangle</button>
+                </div>
+            </div>
+
+        -->
+
+
+            <div class="menu-col">
+                <!-- MENU ROW 1-->
+                <div>
+                    <div class="shape-btn-container">
+                        <button id="default-shape-btn" class="default-shape-btn"><span class="material-symbols-outlined">rectangle</span></button> 
+                        <button id="shape-drop-down-btn" class="shape-drop-down-btn"><span class="material-symbols-outlined">arrow_drop_down</span></button>
+                    </div>
+
+                    <div id="shape-drop-down-content" class="shape-drop-down-content">
+                        <span class="material-symbols-outlined shape-btn">circle</span>
+                        <span class="material-symbols-outlined shape-btn">change_history</span>
+                        <span class="material-symbols-outlined shape-btn">hexagon</span>
+
+                    </div>
+                </div>
+
+
+                <div>
+                    <div class="rotate-container">
+                        <button id="up-deg">+</button>
+                        
+                        <span class="rotate-span">
+                            Rotate:
+                            <input id="degree-input" type="text" placeholder="0">
+                            &#176;
+                        </span>
+                        
+                        <button id="down-deg">-</button>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+            <!-- Col 4 -->
+            <div class="menu-col">
                 <button id="drag-btn" class="disable-drag">DRAG</button>
             </div>
 
-            <div>
-                <button id="add-task-btn">New Task</button>
-                
-            </div>
+            
 
-            <div>
-                Shape
-                <button class= "shape-btn">Rectangle</button>
-                <button class= "shape-btn">Circle</button>
-                <button class= "shape-btn">Triangle</button>
-            </div>
+            
 
             
             
         </div>
 
-
+        <!-- White board -->
         <div class="todo-container">
         </div>
 
