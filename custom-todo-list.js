@@ -1,3 +1,57 @@
+/* ROTATION  */
+let curDegree = 0;
+
+
+
+const degreeInput = document.getElementById('degree-input');
+//Handler when user input specific value
+degreeInput.addEventListener('input', () => {
+    curDegree = Number(degreeInput.value);
+    rotate();
+});
+
+function rotate(){
+    //Update the input to display
+    degreeInput.value = curDegree;   
+
+    const items = document.querySelectorAll('.selected')
+    items.forEach(item => {
+        item.style.transform = `rotate(${curDegree}deg)`;
+    
+    });
+}
+
+
+//Handler when up-btn click
+const upDegreeBtn = document.getElementById('up-deg');
+upDegreeBtn.addEventListener('click', () => {
+    curDegree++;
+    rotate();
+});
+
+//Handler when up-btn click
+const downDegreeBtn = document.getElementById('down-deg');
+downDegreeBtn.addEventListener('click', () => {
+    curDegree--;
+    rotate();
+});
+
+
+//Display current degree if SINGLE element is selected when hover container
+const rotateContainer = document.querySelector(".rotate-container");
+rotateContainer.addEventListener('mouseover', () => {
+   const items = document.querySelectorAll('.selected');
+    if(items.length == 1){
+        items.forEach(item => {
+            degreeInput.value = item.style.transform.match(/\d+/g);
+        });
+    }else{
+        degreeInput.value = '0';
+    } 
+});
+
+
+
 
 /*  disable/enable drag button */
 let draggable = false;
@@ -6,7 +60,6 @@ dragBtn.addEventListener('click', () => {
     dragBtn.classList.toggle('enable-drag');
     draggable = draggable? false : true;
     
-
 });
 
 
@@ -137,10 +190,15 @@ function createShape(btn){
 
     shapeDiv.addEventListener('mouseleave', () => {
         removeShapeBtn.style.visibility = 'hidden';
-    })
+    });
 
 
-
+    //DOUBLE clicks = SELECTED SHAPE
+    shapeDiv.addEventListener('dblclick', () =>{
+        const targetShape = shapeDiv.querySelector('.shape');
+        targetShape.classList.toggle('selected');
+        
+    });
 
     
     //Append shapeDiv to the container
@@ -170,11 +228,12 @@ function createRectangle(event, shapeDiv){
     // create RECTANGLE shape
     const shape = document.createElement('div');
     shape.classList.add('rectangle');
+    shape.classList.add('shape');       // Important - use to activate selected function
+    
 
 
     //Append the rectangle to its shape container
     shapeDiv.append(shape);
-
 }
 
 function createCircle(event, shapeDiv){
@@ -183,6 +242,7 @@ function createCircle(event, shapeDiv){
     // create CIRCLE shape
     const shape = document.createElement('div');
     shape.classList.add('circle');
+    shape.classList.add('shape');           // Important - use to activate selected function
 
     //Append the circle to its shape container
     shapeDiv.append(shape);
