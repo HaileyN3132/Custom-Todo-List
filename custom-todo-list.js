@@ -1,7 +1,19 @@
+/*COLOR FILL*/
+
+const colorInput = document.getElementById('color-input');
+colorInput.addEventListener('input', () => {
+    const items = document.querySelectorAll('.selected')
+    items.forEach(item => {
+        item.style.backgroundColor = colorInput.value;
+        
+    });
+});
+
+
+
+
 /* ROTATION  */
 let curDegree = 0;
-
-
 
 const degreeInput = document.getElementById('degree-input');
 //Handler when user input specific value
@@ -53,7 +65,7 @@ rotateContainer.addEventListener('mouseover', () => {
 
 
 
-/*  disable/enable drag button */
+/*  disable/enable DRAG button */
 let draggable = false;
 const dragBtn = document.getElementById('drag-btn');
 dragBtn.addEventListener('click', () => {
@@ -250,41 +262,17 @@ function createCircle(event, shapeDiv){
 
 
 /*
-function createRectangle(event, todoContainer){
-    console.log(`(${event.clientX}, ${event.clientY})`);
-    //create the shape-container
-    const shapeDiv = document.createElement('div');
-    shapeDiv.classList.add('shape-container');
-    shapeDiv.style.position = "absolute";       // This make the div display anywhere
-    shapeDiv.style.left = event.clientX + "px";
-    shapeDiv.style.top = event.clientY + "px";
+function createTriangle(event, shapeDiv){
+    renderShapeDiv(event, shapeDiv);
 
-    // create the shape
     const shape = document.createElement('div');
-    shape.classList.add('rectangle');
+    shape.classList.add('triangle');
+    shape.classList.add('shape');
+    shapeDiv.append(shape);
 
-
-    // remove button
-    const  removeShapeBtn = document.createElement('button');
-    removeShapeBtn.textContent = 'X';
-    removeShapeBtn.classList.add('remove-shape-btn');
-    removeShapeBtn.addEventListener('click', () =>{
-        shapeDiv.remove();
-    });
-
-
-
-    //Append the rectangle to its container
-    shapeDiv.append(shape, removeShapeBtn);
-
-    //Append new shape to the container
-    todoContainer.append(shapeDiv);
-    
 }
+
 */
-
-
-
 
 
 
