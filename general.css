@@ -70,22 +70,13 @@ h1{
     cursor: move;
 }
 
-/* NEW*/
-.selected{
-    border-style: dashed;
-    border-width: 2px;
-}
 
 .rectangle{
     width: 100px;
     height: 50px;
     resize: both;
-    background-color: aquamarine;
     overflow: hidden;
 }
-
-
-
 
 .circle{
     width: 100px;
@@ -94,6 +85,12 @@ h1{
     resize: both;
     background-color: greenyellow;
     overflow: hidden;
+}
+
+/* NEW*/
+.selected{
+    border-style:dashed;
+    border-width: 3px;
 }
 
 /*
