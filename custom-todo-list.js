@@ -1,5 +1,48 @@
-/*COLOR FILL*/
+/* Text Box */
+const textBoxBtn = document.getElementById('text-box-btn');
+textBoxBtn.addEventListener('click', createTextBox);
 
+function createTextBox(){
+
+    const textDiv = document.createElement('div');
+    textDiv.classList.add('text-container');
+
+    const textBox = document.createElement('textarea');
+    textBox.classList.add('text-box');
+
+    const removeTextBtn = document.createElement('button');
+    removeTextBtn.classList.add('remove-textbox-btn');
+    removeTextBtn.textContent = 'X';
+
+    // Handlder remove text-area
+    removeTextBtn.addEventListener('click', () =>{
+        textDiv.remove();   
+    });
+
+    textDiv.append(textBox, removeTextBtn);
+    
+    //Handler for Drag and drop function
+
+    // First time create
+    const todoContainer = document.querySelector('.todo-container');
+    todoContainer.addEventListener('click', (event) =>{
+        textDiv.style.left = event.clientX + "px";
+        textDiv.style.top = event.clientY + "px";
+        todoContainer.append(textDiv);
+    }, {once:true});
+
+
+    
+
+
+
+
+
+
+}
+
+
+/*COLOR FILL*/
 const colorInput = document.getElementById('color-input');
 colorInput.addEventListener('input', () => {
     const items = document.querySelectorAll('.selected')

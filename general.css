@@ -301,3 +301,56 @@ h1{
     cursor: pointer;
     width: 40px;
 }
+
+
+/* Text Box */
+
+.text-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    caret-color: transparent;
+    z-index: 1;
+}
+
+
+
+.remove-textbox-btn{
+    background-color: transparent;
+    border: none;
+    color: red;
+    visibility: visible;
+}
+
+
+
+.text-box{
+    width: 100px;
+    height: 50px;
+    outline: none;
+    border: solid;
+    resize: none;
+    background-color: transparent;
+    visibility: visible;
+    border-width: 1px;
+
+    
+}
+
+.text-container:hover .remove-textbox-btn, .text-box{
+    visibility: visible;
+}
+
+.text-box:hover{
+    border: dashed;
+    border-width: 1px;
+}
+
+.text-box:focus{
+    border: solid;
+    resize: both;
+    border-width: 1px;
+    caret-color: auto;
+}
+
