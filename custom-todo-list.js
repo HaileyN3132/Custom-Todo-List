@@ -1,3 +1,14 @@
+/*  disable/enable DRAG button */
+let draggable = false;
+const dragBtn = document.getElementById('drag-btn');
+dragBtn.addEventListener('click', () => {
+    dragBtn.classList.toggle('enable-drag');
+    draggable = draggable? false : true;
+    
+});
+
+
+
 /* Text Box */
 const textBoxBtn = document.getElementById('text-box-btn');
 textBoxBtn.addEventListener('click', createTextBox);
@@ -21,7 +32,7 @@ function createTextBox(){
 
     textDiv.append(textBox, removeTextBtn);
     
-    //Handler for Drag and drop function
+    
 
     // First time create
     const todoContainer = document.querySelector('.todo-container');
@@ -32,14 +43,45 @@ function createTextBox(){
     }, {once:true});
 
 
+    //Handler for drag and drop
+    let startX = 0, startY = 0;
+
+    textDiv.addEventListener('mousedown', (event) => {
+        startX = event.clientX;
+        startY = event.clientY;
+
+        // Only drag when enable
+        if(draggable){
+             
+            document.addEventListener('mousemove', dragText);
+
+            document.addEventListener('mouseup', () =>{
+                document.removeEventListener('mousemove', dragText);  
+            });
+        }
+        
+    });
+
+ 
+
+    function dragText(event){
+        console.log('Mouse MOVE');
+        
+        const newX = startX - event.clientX;
+        const newY = startY - event.clientY;
+
+        startX = event.clientX;
+        startY = event.clientY;
+
+        textDiv.style.left = (textDiv.offsetLeft - newX) + 'px';
+        textDiv.style.top = (textDiv.offsetTop - newY) + 'px';
+        
+    }
     
 
-
-
-
-
-
 }
+
+
 
 
 /*COLOR FILL*/
@@ -108,14 +150,7 @@ rotateContainer.addEventListener('mouseover', () => {
 
 
 
-/*  disable/enable DRAG button */
-let draggable = false;
-const dragBtn = document.getElementById('drag-btn');
-dragBtn.addEventListener('click', () => {
-    dragBtn.classList.toggle('enable-drag');
-    draggable = draggable? false : true;
-    
-});
+
 
 
 
