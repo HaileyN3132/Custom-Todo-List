@@ -9,9 +9,9 @@ Created by: **Hailey Ngo**
 
 ## 🚀 Highlight Features
 
-✅ **Drag & Drop Interaction** – Allow users to move and arrange elements in the todo list that suits  their workflow.
-✅ **Custom List Layout** – Using multiple shapes and colors to organize tasks
-✅ **Flexible Shape Controls** – Supports both individual and multi-shape manipulation, such as rotating, changing color, and toggling visibility elements within the layout. 
+*✅ **Drag & Drop Interaction** – Allow users to move and arrange elements in the todo list that suits  their workflow.
+*✅ **Custom List Layout** – Using multiple shapes and colors to organize tasks
+*✅ **Flexible Shape Controls** – Supports both individual and multi-shape manipulation, such as rotating, changing color, and toggling visibility elements within the layout. 
 
 ## 🛠️ Technologies Used
 - HTML
