@@ -1,4 +1,13 @@
-/*  disable/enable DRAG button */
+/*Change the background of todo list*/
+const bgList = document.querySelector('.bg-color-list');
+bgList.addEventListener('input', () => {
+    const bodyTag = document.getElementsByTagName("body")[0];
+    bodyTag.style.backgroundColor = bgList.value;
+});
+
+
+
+/* disable/enable DRAG button */
 let draggable = false;
 const dragBtn = document.getElementById('drag-btn');
 dragBtn.addEventListener('click', () => {

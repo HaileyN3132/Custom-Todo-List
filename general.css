@@ -8,7 +8,40 @@ h1{
     text-align: center;
 }
 
-/* MENU  part*/
+/* HEADING  PART*/
+.heading-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/*Bg-list*/
+.bg-color-list{
+    width: 40px;
+    height: 40px;
+    border: none;
+    appearance: none;
+    background-color: transparent;
+}
+
+.bg-color-list::-webkit-color-swatch{
+    border-radius:50%;
+    border-width: 1px;
+    border: none;
+    transition: 0.15s;
+}
+
+.bg-color-list::-webkit-color-swatch:hover{
+    border-width: 1px;
+    border-style: solid;
+}
+
+
+
+
+
+/* MENU  PART*/
 
 .menu-container{
     display: flex;
