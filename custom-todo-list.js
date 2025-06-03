@@ -215,10 +215,17 @@ function createShape(btn){
                 shapeDiv.append(removeShapeBtn);
             }, {once:true});
             break;
+        
+        
 
-        // Create Triangle
-        case 'change_history':
-            console.log('Create Triangle!');
+        
+        case 'square':
+            console.log('Create Square!');
+            todoContainer.addEventListener('click',(event) =>{
+                createSquare(event, shapeDiv);
+                renderRemoveShapeBtn(removeShapeBtn);
+                shapeDiv.append(removeShapeBtn);
+            }, {once:true});
             break;
     }
 
@@ -336,6 +343,19 @@ function createCircle(event, shapeDiv){
 
     //Append the circle to its shape container
     shapeDiv.append(shape);
+}
+
+function createSquare(event, shapeDiv){
+    renderShapeDiv(event, shapeDiv);
+
+    // create SQUARE shape
+    const shape = document.createElement('div');
+    shape.classList.add('square');
+    shape.classList.add('shape');
+    
+    //Append the circle to its shape container
+    shapeDiv.append(shape);
+
 }
 
 
