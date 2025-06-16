@@ -18,9 +18,10 @@ Created by: **Hailey Ngo**
 - CSS
 - JavaScript  
 
-## 🎬 Video Walkthrough
+## 📸 Screenshots
 
-Here's a walkthrough of implemented features:
+Here's example of implemented features:
+![Image](https://github.com/user-attachments/assets/1ebefff3-dfd0-4bf5-8f19-0f118f5a1767)
 
 
 <!-- Replace this with whatever GIF tool you used! -->
